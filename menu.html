@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' ;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnifying Glass</title>
+</head>
+<body>
+    <h1>Magnifying Glass</h1>
+
+    <h3>Press Ctrl + Q to bring the glass to your mouse!!</h3>
+    <h5>Width</h5>
+
+    <div id ="loading">
+        Loading Settings...
+    </div>
+    <div id = "ctn" style = "display: none;">
+    <input type="range" min="20" max="300" value="100" class="slider" id="boxWidth">
+    <h5>Height</h5>
+    <input  type="range" min="20" max="300" value="50" class="slider" id="boxHeight">
+    <h5>Zoom Strength</h5>
+    <input type="range" min="1" max="15" value="5" class="slider" id="boxZoom">
+    </div>
+    
+    <script src ="popup.js"></script>
+</body>
+
+
+</html>
