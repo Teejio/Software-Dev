@@ -37,7 +37,8 @@ chrome.runtime.onMessage.addListener(
     if (request.func === "main"){
         main(request.val);
     }
-     movePic({clientX: video.getBoundingClientRect().left, clientY: getBoundingClientRect().top})
+
+     movePic({clientX: leBlob.getBoundingClientRect().left + parseInt(leBlob.style.width) * 0.5, clientY: leBlob.getBoundingClientRect().top + parseInt(leBlob.style.height) * 0.5})
       sendResponse({status: "done"});
     }
 );
@@ -108,9 +109,10 @@ await chrome.storage.local.get(["w"]).then((result) => {
 
     function goToMouse() {
         console.log(mouse);
-            leBlob.style.top = `${mouse.y}px`;
-            leBlob.style.left = `${mouse.x}px`;
+            leBlob.style.top = `${mouse.y - parseInt(leBlob.style.height) * 0.5}px`;
+            leBlob.style.left = `${mouse.x - parseInt(leBlob.style.width) * 0.5}px`;
         console.log(leBlob.style.top, leBlob.style.left);
+        movePic({clientX: mouse.x, clientY: mouse.y})
     }
 
     function dragStart(e) {
@@ -128,7 +130,7 @@ await chrome.storage.local.get(["w"]).then((result) => {
             let Y = startY - e.clientY;
             startX = e.clientX;
             startY = e.clientY;
-            console.log(e.clientX * scale, e.clientX, scale);
+
 
             leBlob.style.top = `${leBlob.offsetTop - Y}px`;
             leBlob.style.left = `${leBlob.offsetLeft - X}px`;
@@ -142,12 +144,13 @@ await chrome.storage.local.get(["w"]).then((result) => {
    console.log(str);
    video.src = str;
 
-  
+  movePic({clientX: leBlob.getBoundingClientRect().left + parseInt(leBlob.style.width) * 0.5, clientY: leBlob.getBoundingClientRect().top + parseInt(leBlob.style.height) * 0.5})
     window.addEventListener("scrollend", newScreenShot);
         window.addEventListener("resize", newScreenShot);
 }
 
 function movePic(e){
+    console.log(e.clientX * scale, e.clientX, scale);
      video.style.transform = `translate(${(e.clientX) * -scale + parseInt(leBlob.style.width)*0.5}px, ${(e.clientY) * -scale + parseInt(leBlob.style.height)*0.5}px)`;
 
 }
