@@ -163,7 +163,7 @@ leBlob.style.display = "block";
         
         console.log(response);
         video.src = response.data;
-        movePic({clientX: video.getBoundingClientRect().left, clientY: getBoundingClientRect().top})
+ movePic({clientX: leBlob.getBoundingClientRect().left + parseInt(leBlob.style.width) * 0.5, clientY: leBlob.getBoundingClientRect().top + parseInt(leBlob.style.height) * 0.5})
 }
 
 
