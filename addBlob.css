@@ -27,7 +27,7 @@
    -webkit-user-drag: none;
    -webkit-user-select: none;
    -ms-user-select: none;
-   
+   pointer-events: none; 
     max-width: none;
   max-height: none;
 
