@@ -3,32 +3,46 @@
   "description": "Magnifying Glass to help read text",
   "version": "1.0",
   "manifest_version": 3,
-    "host_permissions": ["<all_urls>"],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "action": {
     "default_popup": "menu.html",
     "default_icon": "logo.png"
   },
-      "permissions": [
-        "storage",
-        "activeTab",
-        "scripting",
-        "tabs"
-    ],
-   "web_accessible_resources": [
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "tabCapture",
+    "tabCapture"
+  ],
+
+
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
     {
-      "resources": [ "*.css" ],
-      "matches": [ "<all_urls>" ]
+      "resources": [
+        "*.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ],
-    "content_scripts": [
-        {
-            "all_frames": true,
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
-                "addBlob.js"
-            ]
-        }
-    ]
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "addBlob.js"
+      ]
+    }
+  ]
 }

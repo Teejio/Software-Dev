@@ -7,12 +7,27 @@
     top:100px;
     right: 100px;
     z-index:999999;
-  backdrop-filter: saturate(100%)  url(#fakeScale)  ;
-  filter:saturate(120%) url(#fakeScale);
   border-color: white;
   border-width: 20px;
        box-shadow:
         0 0 0 5px black,
         0 0 0 10px white;
+        overflow: hidden;
+          max-width: none;
+  max-height: none;
 }
 
+
+
+
+#video-20080708{
+    -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+    max-width: none;
+  max-height: none;
+
+  width: auto;
+}

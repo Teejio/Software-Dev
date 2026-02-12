@@ -46,6 +46,15 @@ for (var name in width)
     variables += name + "\n";
 document.getElementById("loading").style.display = "none";
 document.getElementById("ctn").style.display = "block"
+
+let tab = await chrome.tabs.query(queryOptions);
+   let a = await chrome.tabs.captureVisibleTab();
+
+
+chrome.tabs.sendMessage(tab[0].id, {func: "main", val: a}, function(response) {
+
+    });
 }
 
  loadSettings()
+
